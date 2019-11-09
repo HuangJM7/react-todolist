@@ -1,14 +1,19 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import SignUp from './component/SignUp/SignUp'
+import LogIn from './component/LogIn/LogIn'
+import Home from './component/Home/Home'
+import history from './config/history'
+
 
 export default function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
         <nav>
           <ul>
@@ -16,10 +21,10 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/SignUp">SignUp</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/LogIn">LogIn</Link>
             </li>
           </ul>
         </nav>
@@ -27,14 +32,11 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/LogIn" component={LogIn}>
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/SignUp" component={SignUp}>
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/" component={Home}>
           </Route>
         </Switch>
       </div>
@@ -42,14 +44,5 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
-function About() {
-  return <h2>About</h2>;
-}
 
-function Users() {
-  return <h2>Users</h2>;
-}
