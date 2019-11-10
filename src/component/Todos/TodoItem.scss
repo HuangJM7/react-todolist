@@ -1,0 +1,42 @@
+#TodoItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 4px;
+    border-bottom: 1px solid #ddd;
+
+    &:hover {
+        background: #f9f9f9;
+    }
+
+    &.editing {
+        background: #fffed2;
+    }
+
+    &.completed {
+        >.text {
+            text-decoration: line-through;
+            color: #a9a9a9;
+        }
+    }
+
+    >.editing,
+    >text {
+        flex: 1;
+    }
+
+    >.editing {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        >input {
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+        >i{
+            margin-left:  4px;
+            cursor: pointer;
+        }
+    }
+}
