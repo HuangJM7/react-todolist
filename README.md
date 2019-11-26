@@ -1,5 +1,5 @@
 预览
-https://huangjm7.github.io/react-todolist/build/index.html
+https://huangjm7.github.io/react-todolist/build
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
