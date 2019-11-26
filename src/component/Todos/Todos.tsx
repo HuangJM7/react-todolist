@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Collapse } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import { initTodos, updateTodo } from "../../Redux/actions";
+import { initTodos, updateTodo } from "../../Redux/actions/todos";
 import axios from "../../config/axios";
 import TodoInput from "./TodoInput"
 import TodoItem from './TodoItem'
@@ -102,7 +102,7 @@ class Todos extends React.Component<any, any>{
                             />
                         })
                     }
-                    <Collapse defaultActiveKey={['1']} bordered={false}  >
+                    <Collapse  bordered={false}  >
                         <Panel header="已完成任务" key="1">
                             <p>{
                                 this.completedTodos.map((t: any) => {

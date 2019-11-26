@@ -5,7 +5,7 @@ import axios from "../../config/axios";
 import classnames from 'classnames'
 import './TodoItem.scss'
 import { connect } from 'react-redux';
-import { editTodo, updateTodo } from '../../Redux/actions'
+import { editTodo, updateTodo } from "../../Redux/actions/todos";
 
 class TodoItem extends React.Component<any, any>{
     constructor(props: any) {

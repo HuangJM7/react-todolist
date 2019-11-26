@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Input, Icon, Dropdown } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import axios from "../../config/axios";
-import { addTodo } from "../../Redux/actions";
+import { addTodo } from  "../../Redux/actions/todos";
 
 
 class TodoInput extends React.Component<any, any>{
@@ -50,12 +50,12 @@ class TodoInput extends React.Component<any, any>{
     }
 }
 
-const mapStateToProps = (state:any, ownProps:any) => ({
-	...ownProps
+const mapStateToProps = (state: any, ownProps: any) => ({
+    ...ownProps
 })
 
 const mapDispatchToProps = {
-	addTodo
+    addTodo
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(TodoInput);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);
