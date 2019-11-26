@@ -23,7 +23,6 @@ class LogIn extends React.Component<any, TSLogInState> {
         const temp: TSLogInState = {}
         temp[key] = value
         this.setState(temp)
-        console.log(this.props);
         
     }
     submit = async () => {
@@ -37,7 +36,10 @@ class LogIn extends React.Component<any, TSLogInState> {
             console.log(this.props);
             
         } catch (error) {
-            throw new Error(error)
+            console.log(this.props);
+            // throw new Error(error)
+            alert("密码或用户名错误")
+            this.setState({password: ''})
         }
     }
     public render() {
