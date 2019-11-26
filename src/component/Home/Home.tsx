@@ -14,6 +14,9 @@ class SignUp extends React.Component<any, any>{
         }
     }
     async componentWillMount() {
+        window.addEventListener("beforeunload", function (event) {
+            window.location.href="https://huangjm7.github.io/react-todolist/build"
+        });
         await this.getMe()
     }
     getMe = async () => {
@@ -56,7 +59,7 @@ class SignUp extends React.Component<any, any>{
                 </header>
 
                 <main>
-                    <Tomatoes/>
+                    <Tomatoes />
                     <Todos />
                 </main>
             </div>
