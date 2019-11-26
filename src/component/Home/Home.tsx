@@ -14,12 +14,14 @@ class SignUp extends React.Component<any, any>{
         }
     }
     async componentWillMount() {
-        window.addEventListener("beforeunload", function (event) {
-            event.preventDefault()
-            window.location.href="https://huangjm7.github.io/react-todolist/build"
-        });
         await this.getMe()
     }
+    // componentDidMount() {
+    //     window.addEventListener("beforeunload", function (event) {
+    //         event.preventDefault()
+    //         window.location.href = "https://huangjm7.github.io/react-todolist/build"
+    //     });
+    // }
     getMe = async () => {
         try {
             const response = await axios.get("me")
