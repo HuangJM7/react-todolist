@@ -2,7 +2,7 @@ import * as React from "react"
 import { Input, Icon, Button } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import axios from "../../config/axios";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.scss"
 
 interface TSLogInState {
@@ -23,7 +23,7 @@ class LogIn extends React.Component<any, TSLogInState> {
         const temp: TSLogInState = {}
         temp[key] = value
         this.setState(temp)
-        
+
     }
     submit = async () => {
         const { account, password, } = this.state
@@ -31,15 +31,18 @@ class LogIn extends React.Component<any, TSLogInState> {
             await axios.post("sign_in/user", {
                 account,
                 password
+            }).then(() => {
+                this.props.history.push("/")//登录成功跳转主页面
+            }).catch((err) => {
+                console.log(err);
+                alert("用户名或密码错误")
+                this.setState({ password: '' })
+
             })
-            this.props.history.push("/")//登录成功跳转主页面
-            console.log(this.props);
-            
+            // this.props.history.push("/")//登录成功跳转主页面
+
         } catch (error) {
-            console.log(this.props);
             // throw new Error(error)
-            alert("密码或用户名错误")
-            this.setState({password: ''})
         }
     }
     public render() {

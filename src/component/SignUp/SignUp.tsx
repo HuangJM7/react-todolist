@@ -24,21 +24,31 @@ class SignUp extends React.Component<any, TSignUpState> {
     onChange = (key: keyof TSignUpState, value: string) => {
         const temp: TSignUpState = {}
         temp[key] = value
+        console.log(temp);
         this.setState(temp)
 
     }
     submit = async () => {
         const { account, password, passwordConformation } = this.state
+
         try {
             await axios.post("sign_up/user", {
                 account,
                 password,
+                password_confirmation: passwordConformation
+            }).then((res) => {
+                this.props.history.push("/")//登录成功跳转主页面
+            }).catch((err) => {
+                console.log(err);
+                alert(err)
+                this.setState({ password: '', passwordConformation: '' })
+
             })
-            this.props.history.push("/")//登录成功跳转主页面
 
         } catch (error) {
-            alert('错误')
-            this.setState({password: '',passwordConformation: ''})
+
+            alert(error.account)
+            this.setState({ password: '', passwordConformation: '' })
             // throw new Error(error)
         }
     }

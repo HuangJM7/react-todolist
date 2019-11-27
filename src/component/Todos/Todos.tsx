@@ -39,7 +39,7 @@ class Todos extends React.Component<any, any>{
             const todos = response.data.resources.map((t: any) => Object.assign({}, t, { editing: false }))
             this.props.initTodos(todos)//
         } catch (e) {
-            throw new Error(e)
+            // throw new Error(e)
         }
     }
     //旧的数据获取函数,将数据保存在todos的state中
