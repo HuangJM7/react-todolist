@@ -15,7 +15,10 @@ class TodoItem extends React.Component<any, any>{
         }
     }
 
-    updateTodo = async (params: any) => {//
+    updateTodo = async (params: any) => {
+        if (params.completed) {
+            params.completed_at = new Date();
+        }
         try {
             const response = await axios.put(`todos/${this.props.id}`, params)//请求接口数据
             this.props.updateTodo(response.data.resource)//更新store数据

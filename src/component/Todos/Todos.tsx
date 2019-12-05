@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Collapse } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import { initTodos, updateTodo } from "../../Redux/actions/todos";
+import {  updateTodo } from "../../Redux/actions/todos";
 import axios from "../../config/axios";
 import TodoInput from "./TodoInput"
 import TodoItem from './TodoItem'
@@ -29,19 +29,18 @@ class Todos extends React.Component<any, any>{
     get completedTodos() {
         return this.unDeleteTodos.filter((t: any) => { return t.completed })
     }
-    componentDidMount() {//生命周期函数,初始化数据
-        this.getTodos()
-    }
+
     //新的数据获取函数,将数据保存在store中
-    getTodos = async () => {
-        try {
-            const response = await axios.get('todos')
-            const todos = response.data.resources.map((t: any) => Object.assign({}, t, { editing: false }))
-            this.props.initTodos(todos)//
-        } catch (e) {
-            // throw new Error(e)
-        }
-    }
+    //todo数据初始化在Home进行
+    // getTodos = async () => {
+    //     try {
+    //         const response = await axios.get('todos')
+    //         const todos = response.data.resources.map((t: any) => Object.assign({}, t, { editing: false }))
+    //         this.props.initTodos(todos)//
+    //     } catch (e) {
+    //         // throw new Error(e)
+    //     }
+    // }
     //旧的数据获取函数,将数据保存在todos的state中
     // getTodo = async () => {
     //     try {
@@ -125,7 +124,7 @@ const mapStateToProps = (state: any, ownProps: any) => {//绑定store的state到
     }
 }
 const mapDispatchToProps = {//绑定dispatch函数到props中
-    initTodos,
+    // initTodos,//数据初始化在home组件进行
     updateTodo
 }
 
