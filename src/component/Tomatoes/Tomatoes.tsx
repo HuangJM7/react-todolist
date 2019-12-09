@@ -23,16 +23,12 @@ class Tomatoes extends React.Component<ITomatoesProps> {
 		return this.props.tomatoes.filter(t => !t.description && !t.ended_at && !t.aborted)[0]
 	}
 
-    // format(`2019-11-12T12:22:26.738Z`,'YYYY-MM-D')
-	// data-fns时间转换bug
+	// format(`2019-11-12T12:22:26.738Z`,'YYYY-MM-D')
+	// data-fns时间转换bug,版本更新,不接受字符串格式参数,接受Date或number类型
 	get finishedTomatoes() {
 		const finishedTomatoes = this.props.tomatoes.filter(t => t.description && t.ended_at && !t.aborted)
-
 		return _.groupBy(finishedTomatoes, (tometo) => {
-			// console.log(tometo.started_at);
-			// return format(tometo.started_at, 'yyyy-MM-dd')
-			// return format(tometo.started_at, 'YYYY-MM-D')
-			return tometo.started_at
+			return format(new Date(tometo.started_at), 'yyyy-MM-dd')
 		})
 	}
 	//数据初始化在HOME进行

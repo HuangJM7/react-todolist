@@ -32,16 +32,16 @@ class SignUp extends React.Component<any, any>{
             // throw new Error(e)
         }
     }
-	getTomatoes = async () => {
-		try {
-			const response = await axios.get('tomatoes')
-			console.log(response.data.resources);
-			this.props.initTomatoes(response.data.resources)
+    getTomatoes = async () => {
+        try {
+            const response = await axios.get('tomatoes')
+            console.log(response.data.resources);
+            this.props.initTomatoes(response.data.resources)
 
-		} catch (e) {
-			// throw new Error(e)
-		}
-	}
+        } catch (e) {
+            // throw new Error(e)
+        }
+    }
     getMe = async () => {
         try {
             const response = await axios.get("me")
@@ -79,7 +79,7 @@ class SignUp extends React.Component<any, any>{
                         </span>
                     </Dropdown.Button>
                 </header>
-
+                
                 <main>
                     <Tomatoes />
                     <Todos />
