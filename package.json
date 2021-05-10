@@ -19,7 +19,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.7.0",
     "dayjs": "^1.8.17",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
